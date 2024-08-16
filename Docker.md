@@ -3,8 +3,16 @@
 > [!NOTE]
 > Learn more at [Docker Docs](https://docs.docker.com/engine/install/).
 
+## Contents
 
-## Install Docker on Fedora
+- [Installation](#installation)
+  - [Install Docker on Fedora](#install-docker-on-fedora)
+  - [Install Docker on Ubuntu](#install-docker-on-ubuntu)
+- [Basic Commands](#basic-commands)
+
+## Installation
+
+### Install Docker on Fedora
 
 ```bash
 sudo dnf -y install dnf-plugins-core
@@ -25,7 +33,7 @@ docker run hello-world
 ```
 
 
-## Install Docker on Ubuntu
+### Install Docker on Ubuntu
 
 ```bash
 sudo apt-get update
@@ -49,4 +57,62 @@ newgrp docker
 systemctl reboot
 
 docker run hello-world
+```
+
+
+## Basic Commands
+
+```bash
+# Display help information
+docker --help
+
+# Pull images from Docker registry
+# NOTE: pull --help
+docker pull <IMAGE:TAG>
+
+# Display images
+# NOTE: docker images --help
+docker images
+
+# Display running containers
+# NOTE: docker ps --help
+docker ps
+
+# Display all containers
+docker ps -a
+
+# Display volumes
+# NOTE: docker volume --help
+docker volume ls
+
+# Stop container
+# NOTE: docker stop --help
+docker stop <CONTAINER>
+
+# Remove container
+# NOTE: docker rm --help
+docker rm <CONTAINER>
+
+# Remove image
+# NOTE: docker rmi --help
+docker rmi <IMAGE>
+
+# Remove all unused volume
+# NOTE: docker volume prune --help
+docker volume prune --all
+
+# Remove all unused data
+# NOTE: docker system prune --help
+docker system prune --all
+
+# Display Docker disk usage
+# NOTE: docker system df --help
+docker system df
+
+# Get Docker container IP address
+# NOTE: docker inspect --help
+docker inspect <CONTAINER> | grep "IPAddress"
+
+# Remove dangling Docker images
+docker rmi -f $(docker images -f "dangling=true" -q)
 ```
