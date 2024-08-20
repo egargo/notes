@@ -14,8 +14,12 @@
 docker --help
 
 # Pull images from Docker registry
-# NOTE: pull --help
+# NOTE: docker pull --help
 docker pull <IMAGE:TAG>
+
+# Push image to Docker registry
+# NOTE: docker push --help
+docker push <IMAGE:TAG>
 
 # Display images
 # NOTE: docker images --help
@@ -24,7 +28,6 @@ docker images
 # Display running containers
 # NOTE: docker ps --help
 docker ps
-
 # Display all containers
 docker ps -a
 
@@ -44,6 +47,9 @@ docker rm <CONTAINER>
 # NOTE: docker rmi --help
 docker rmi <IMAGE>
 
+# Remove dangling Docker images
+docker rmi -f $(docker images -f "dangling=true" -q)
+
 # Remove all unused volume
 # NOTE: docker volume prune --help
 docker volume prune --all
@@ -60,11 +66,12 @@ docker system df
 # NOTE: docker inspect --help
 docker inspect <CONTAINER> | grep "IPAddress"
 
-# Remove dangling Docker images
-docker rmi -f $(docker images -f "dangling=true" -q)
-
 # Execute a command in a running Docker container
 # NOTE: docker exec -it --help
 # Example: docker exec -it <CONTAINER> /bin/sh
 docker exec -it <CONTAINER> <COMMAND>
+
+# Rebuild Docker Compose service
+# NOTE: docker compose up --help
+docker compose up -d --no-deps --build <SERVICE>
 ```
