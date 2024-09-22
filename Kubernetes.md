@@ -15,6 +15,9 @@
 # Start minikube
 minikube start
 
+# Start minikube with custom CPU and RAM resources
+minikube start --cpus 4 --memory 4096
+
 # Stop minikube
 minikube stop
 
