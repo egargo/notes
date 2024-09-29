@@ -74,4 +74,13 @@ docker exec -it <CONTAINER> <COMMAND>
 # Rebuild Docker Compose service
 # NOTE: docker compose up --help
 docker compose up -d --no-deps --build <SERVICE>
+
+# Displays logs
+# NOTE: docker logs --help
+# Display docker logs
+docker logs <CONTAINER_ID | CONTAINER_NAME>
+# Follow docker logs
+docker logs -f <CONTAINER_ID | CONTAINER_NAME>
+# Follow docker logs with timestamp
+docker logs -tf <CONTAINER_ID | CONTAINER_NAME>
 ```
